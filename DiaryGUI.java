@@ -17,7 +17,7 @@ public class DiaryGUI
 		d1.addContact("Bobby","888-888-8888");
 		d1.addContact("Samuel", "777-777-7777");
 		d1.addContact("C", "777-777-7771");
-		d1.addEvent("Finish This Project", "Please Present This Project", 2015, 11, 3, 10, 00, 2015, 11, 3, 10, 30);
+		d1.addEvent("Sample Event", "This is a Sample Event", 2015, 11, 3, 10, 00, 2015, 11, 3, 10, 30);
 		d1.addEvent("Do Laundry", "Throw clothes into washing machine",2015, 11, 05, 15, 00, 2015, 11, 05, 15, 30);
 		
 		final JFrame DA = new JFrame();//DA stands for Diary
