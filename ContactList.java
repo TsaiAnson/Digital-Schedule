@@ -1,18 +1,27 @@
+/**
+ * An object that represents a list of CONTACTS. Uses LISTNODE objects as a linked-list.
+ * @author Yuan-Cheng Tsai
+ */
+
 
 public class ContactList 
 {
+	/** ListNode CONTACTS is the head of the linked-list that holds CONTACT objects. */
 	private ListNode contacts;
-	
+
+	/** Constructor for ContactList. */
 	public ContactList()
 	{
 		contacts = null;
 	}
-	
+
+	/** Returns ListNode CONTACTS. */
 	public ListNode getC()
 	{
 		return contacts;
 	}
-	
+
+	/** Adds contact CT to ListNode CONTACTS. */
 	public void addC(Contact ct)
 	{
 		ListNode node = new ListNode (ct, null);
@@ -43,7 +52,8 @@ public class ContactList
 			current.setNext(node);
 		}
 	}
-	
+
+	/** Returns the CONTACT object at the specified INDEX of the ListNode CONTACTS. */
 	public Contact getC(int index)
 	{
 		ListNode current = contacts;
@@ -60,7 +70,8 @@ public class ContactList
 		}
 		return (Contact) current.getNext().getValue();
 	}
-	
+
+	/** Removes the CONTACT object at the specified INDEX of the ListNode CONTACTS. */
 	public void delC(int index)
 	{
 		ListNode current = contacts;

@@ -5,26 +5,36 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
 
+/**
+ * This class handles the GUI of the program. The GUI utilizes the Java Swing and Event packages.
+ * @author Yuan-Cheng Tsai
+ */
+
 public class DiaryGUI 
 {
-	//Creating Diary
+    /** Creating a Diary object. */
 	private Diary d1 = new Diary();
-	
-	@SuppressWarnings("serial")
+
+    /** The Contructor that holds the whole GUI. */
 	public DiaryGUI() throws ParseException
 	{	
-		//Creating Some Sample Contacts/Events
+		/* Creating sample CONTACT and EVENT objects. */
 		d1.addContact("Bobby","888-888-8888");
 		d1.addContact("Samuel", "777-777-7777");
 		d1.addContact("C", "777-777-7771");
-		d1.addEvent("Sample Event", "This is a Sample Event", 2015, 11, 3, 10, 00, 2015, 11, 3, 10, 30);
-		d1.addEvent("Do Laundry", "Throw clothes into washing machine",2015, 11, 05, 15, 00, 2015, 11, 05, 15, 30);
-		
-		final JFrame DA = new JFrame();//DA stands for Diary
+		d1.addEvent("Sample Event", "This is a Sample Event",
+                2015, 11, 3, 10, 00, 2015,
+                11, 3, 10, 30);
+		d1.addEvent("Do Laundry", "Throw clothes into washing "
+                        + "machine",2015, 11, 05, 15, 00,
+                        2015, 11, 05, 15, 30);
+
+		/* Main frame that User interacts with. */
+		final JFrame DA = new JFrame();
 	    DA.setSize(850, 600);
 	    DA.setTitle("Digital Schedule");
 	    DA.setResizable(false);
-	    DA.setLocationRelativeTo(null); //Makes the window appear in the center of the screen
+	    DA.setLocationRelativeTo(null);
 	    
 	    JPanel mainP = new JPanel();
 	    mainP.setLayout(new GridLayout(7,1));
@@ -91,9 +101,10 @@ public class DiaryGUI
 	        e.printStackTrace();
 	    }
 	}
-	
-	JTextField CName = new JTextField(); /*I added the text fields here because I needed 
-    the text fields to be static in order for the actionListener to be able to grab the text*/
+
+    /*The text fields are here so that they are in the scope for actionListener
+        to be able to grab the text*/
+	JTextField CName = new JTextField();
     JTextField CPhone = new JTextField();
     JTextField CRem = new JTextField();
     JTextField EName = new JTextField();
@@ -109,7 +120,8 @@ public class DiaryGUI
     JTextField EeDateHour = new JTextField();
     JTextField EeDateMin = new JTextField();
     JTextField ERem = new JTextField();
-	
+
+    /** Creates and shows the frame that allows the user to interact with Events. */
 	@SuppressWarnings("serial")
 	public void eventsGUI()
 	{
@@ -197,9 +209,6 @@ public class DiaryGUI
                 	
                 	addEGUI();
             	}
-            	
-            	//EV.setVisible(false);
-                //eEGUI();
             }
         };
         eEB.addActionListener(acteEB);
@@ -243,7 +252,8 @@ public class DiaryGUI
 	    
 		EV.setVisible(true);
 	}
-	
+
+    /** Creates and shows a frame where the user can add an EVENT. */
 	@SuppressWarnings("serial")
 	public void addEGUI()
 	{
@@ -381,9 +391,9 @@ public class DiaryGUI
 	    
 	    aEV.setVisible(true);
 	}
-	
-	
-	
+
+
+    /** Creates and shows a frame where the user can interact with the CONTACT objects. */
 	@SuppressWarnings("serial")
 	public void contactsGUI()
 	{
@@ -484,7 +494,8 @@ public class DiaryGUI
 	    
 		CT.setVisible(true);
 	}
-	
+
+    /** Creates and shows a frame that allows the user to create CONTACT objects. */
 	@SuppressWarnings("serial")
 	public void addCGUI()
 	{
@@ -541,7 +552,8 @@ public class DiaryGUI
 			alertGUI(e1);
 		}
 	}
-	
+
+    /** Creates and shows a frame with the notification and description. */
 	@SuppressWarnings("serial")
 	public void alertGUI(Event e1)
 	{

@@ -1,18 +1,28 @@
 
+/**
+ * An object that represents a list of EVENT objects.
+ * Using LISTNODE objects as a linked-list.
+ * @author Yuan-Cheng Tsai
+ */
+
 public class EventList 
 {
+    /** ListNode EVENTS is the head of the list-node holding EVENT objects. */
 	private ListNode events;
-	
+
+    /** Constructor for EVENTS. */
 	public EventList()
 	{
 		events = null;
 	}
-	
+
+    /** Returns the ListNode EVENTS. */
 	public ListNode getE()
 	{
 		return events;
 	}
-	
+
+    /** Adds the event ET to the end of ListNode EVENTS. */
 	public void addE(Event et)
 	{
 		ListNode node = new ListNode (et, null);
@@ -43,7 +53,8 @@ public class EventList
 			current.setNext(node);
 		}
 	}
-	
+
+    /** Returns the EVENT at the specific index INDEX of ListNode EVENTS. */
 	public Event getE(int index)
 	{
 		ListNode current = events;
@@ -60,7 +71,8 @@ public class EventList
 		}
 		return (Event) current.getNext().getValue();
 	}
-	
+
+    /** Removes the EVENT at the specific index INDEX of ListNode EVENTS. */
 	public void delE(int index)
 	{
 		ListNode current = events;
@@ -78,7 +90,7 @@ public class EventList
 		}
 		current.setNext(current.getNext().getNext());
 	}
-	
+
 	public String toString()
 	{
 		String result = "";

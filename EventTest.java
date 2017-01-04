@@ -1,5 +1,10 @@
 import java.text.ParseException;
 
+/**
+ * Class that tests the adding of Event objects to an EventList object.
+ * @author Yuan-Cheng Tsai
+ */
+
 public class EventTest 
 {
 	public static void main(String[] args) throws ParseException
