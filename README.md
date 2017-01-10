@@ -1,5 +1,5 @@
 # Digital-Schedule
-Program that allows users to store snippets of their daily lives. The diary also includes notification/reminder functionality. 
+The Digital Schedule keeps track of all entries and properly notifies the User when the set time requirements are met. The program also allows the User to create contacts with names and phone numbers. For usability, the program includes a basic GUI interface. Written in Java.
 
 To compile, run javac Contact.java Event.java ListNode.java ContactList.java EventList.java Diary.java DiaryGUI.java Startup.java
 
