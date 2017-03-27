@@ -16,5 +16,5 @@ In the Events window, we are able to create, edit and remove Events. To create a
 #### Contacts
 In the Contacts window, we can see that there are a few sample Contacts already populated (Feel free to remove them). The process of creating, editing, and removing contacts is the exact same as with Events so feel free to look above as a refresher.
 
-#### Questions?
+#### Feedback!
 How is my program? Do you have any questions, comments, and/or improvements? Feel free to let me know!
