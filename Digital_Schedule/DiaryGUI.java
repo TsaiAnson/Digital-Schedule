@@ -14,6 +14,7 @@ public class DiaryGUI
 {
     /** Creating a Diary object. */
 	private Diary d1 = new Diary();
+	private int running = 1;
 
     /** The Contructor that holds the whole GUI. */
 	public DiaryGUI() throws ParseException
@@ -21,13 +22,10 @@ public class DiaryGUI
 		/* Creating sample CONTACT and EVENT objects. */
 		d1.addContact("Bobby","888-888-8888");
 		d1.addContact("Samuel", "777-777-7777");
-		d1.addContact("C", "777-777-7771");
+		d1.addContact("Contact", "777-777-7771");
 		d1.addEvent("Sample Event", "This is a Sample Event",
                 2015, 11, 3, 10, 00, 2015,
                 11, 3, 10, 30);
-		d1.addEvent("Do Laundry", "Throw clothes into washing "
-                        + "machine",2015, 11, 05, 15, 00,
-                        2015, 11, 05, 15, 30);
 
 		/* Main frame that User interacts with. */
 		final JFrame DA = new JFrame();
@@ -65,6 +63,10 @@ public class DiaryGUI
 	    Action actexitB = new AbstractAction(){ //This is what is going to happen if the button is pressed
             public void actionPerformed(ActionEvent evt){
                 DA.setVisible(false);
+                DA.dispose();
+                running = 0;
+				Thread.interrupted();
+                System.exit(0);
             }
         };
         exitB.addActionListener(actexitB);
@@ -90,7 +92,7 @@ public class DiaryGUI
 	    
 	    try 
 	    {
-	        while (true) 
+	        while (running != 0)
 	        {
 	            alert();
 	            Thread.sleep(30 * 1000);
@@ -155,6 +157,7 @@ public class DiaryGUI
 	    Action actaddEB = new AbstractAction(){ //This is what is going to happen if the button is pressed
             public void actionPerformed(ActionEvent evt){
                 EV.setVisible(false);
+                EV.dispose();
                 addEGUI();
             }
         };
@@ -170,6 +173,7 @@ public class DiaryGUI
             	if (i != -1)
             	{	
             		EV.setVisible(false);
+            		EV.dispose();
             		
             		Event e1 = d1.getEvent(i);
                 	
@@ -221,6 +225,7 @@ public class DiaryGUI
             	if (eventsL.getSelectedIndex() != -1)
             	{
             		EV.setVisible(false);
+            		EV.dispose();
             		d1.delEvent(eventsL.getSelectedIndex());
             		eventsGUI();
             	}
@@ -233,6 +238,7 @@ public class DiaryGUI
 	    Action actexitB = new AbstractAction(){ //This is what is going to happen if the button is pressed
             public void actionPerformed(ActionEvent evt){
                 EV.setVisible(false);
+                EV.dispose();
             }
         };
         exitB.addActionListener(actexitB);
@@ -301,6 +307,7 @@ public class DiaryGUI
 		Action actdoneB = new AbstractAction(){ //This is what is going to happen if the button is pressed
             public void actionPerformed(ActionEvent evt){
             	aEV.setVisible(false);
+            	aEV.dispose();
 
             	String nm = EName.getText();
             	String rm = ERemind.getText();
@@ -427,6 +434,7 @@ public class DiaryGUI
 	    Action actaddCB = new AbstractAction(){ //This is what is going to happen if the button is pressed
             public void actionPerformed(ActionEvent evt){
                 CT.setVisible(false);
+                CT.dispose();
                 addCGUI();
             }
         };
@@ -442,6 +450,7 @@ public class DiaryGUI
             	if (i != -1)
             	{
             		CT.setVisible(false);
+            		CT.dispose();
             		Contact c1 = d1.getContact(i);
             		CName.setText(c1.getName());
             		CPhone.setText(c1.getNumb());
@@ -462,6 +471,7 @@ public class DiaryGUI
                 if (i != -1)
                 {
                 	CT.setVisible(false);
+                	CT.dispose();
                 	d1.delContact(i);
                 	contactsGUI();
                 }
@@ -475,6 +485,7 @@ public class DiaryGUI
 	    Action actexitB = new AbstractAction(){ //This is what is going to happen if the button is pressed
             public void actionPerformed(ActionEvent evt){
                 CT.setVisible(false);
+                CT.dispose();
             }
         };
         exitB.addActionListener(actexitB);
@@ -518,7 +529,8 @@ public class DiaryGUI
 		Action actdoneB = new AbstractAction(){ //This is what is going to happen if the button is pressed
             public void actionPerformed(ActionEvent evt){
             	aCT.setVisible(false);
-            	
+            	aCT.dispose();
+
             	String nm = CName.getText();
             	String nb = CPhone.getText();
             	CName.setText("");
@@ -543,7 +555,7 @@ public class DiaryGUI
 	    aCT.setVisible(true);
 	}
 	
-		public void alert()
+	public void alert()
 	{
 		Event e1 = (Event) d1.getEvents().getValue();
 		
@@ -571,6 +583,7 @@ public class DiaryGUI
 		Action actdoneB = new AbstractAction(){ //This is what is going to happen if the button is pressed
             public void actionPerformed(ActionEvent evt){
             	AL.setVisible(false);
+            	AL.dispose();
             }
         };
         doneB.addActionListener(actdoneB);
@@ -580,6 +593,7 @@ public class DiaryGUI
 		Action actdelB = new AbstractAction(){ //This is what is going to happen if the button is pressed
             public void actionPerformed(ActionEvent evt){
             	AL.setVisible(false);
+            	AL.dispose();
             	
             	d1.delEvent(0);
             }
